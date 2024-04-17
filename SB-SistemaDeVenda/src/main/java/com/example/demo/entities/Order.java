@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import com.example.demo.entities.enums.OrderStatus;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -32,5 +34,7 @@ public class Order implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "client_id")
 	private User client;
+	
+	private OrderStatus orderStatus;
 	
 }
