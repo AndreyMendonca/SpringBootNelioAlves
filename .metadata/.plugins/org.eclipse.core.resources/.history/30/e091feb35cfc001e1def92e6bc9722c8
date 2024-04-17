@@ -1,0 +1,22 @@
+package com.example.demo.entities;
+
+import java.time.LocalDate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+@Entity
+@Table(name = "tb_order")
+@Data
+@AllArgsConstructor
+@ToString
+@EqualsAndHashCode
+public class Order {
+	private Integer id;
+	private LocalDate moment;
+	
+}
