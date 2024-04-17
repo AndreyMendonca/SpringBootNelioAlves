@@ -73,3 +73,6 @@ END
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 21:55:05.944
 !MESSAGE Classpath changed for project: SB-SistemaDeVenda
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2024-04-16 22:12:44.935
+!MESSAGE Classpath changed for project: SB-SistemaDeVenda
