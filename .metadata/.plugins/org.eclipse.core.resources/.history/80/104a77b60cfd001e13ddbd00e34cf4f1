@@ -1,0 +1,13 @@
+package com.example.demo.entities;
+
+import com.example.demo.entities.pk.OrderItemPK;
+
+public class OrderItem {
+
+	private OrderItemPK id;
+	private Integer quantity;
+	private Double price;
+	
+	
+	
+}

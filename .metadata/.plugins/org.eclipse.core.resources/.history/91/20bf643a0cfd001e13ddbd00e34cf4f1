@@ -1,0 +1,14 @@
+package com.example.demo.entities.pk;
+
+import java.io.Serializable;
+
+import com.example.demo.entities.Order;
+import com.example.demo.entities.Product;
+
+import lombok.Data;
+
+@Data
+public class OrderItemPK implements Serializable{
+	private Order order;
+	private Product product;
+}
