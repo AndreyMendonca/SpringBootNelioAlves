@@ -2,6 +2,8 @@ package com.example.demo.entities;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,7 +25,7 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private LocalDate date;
-	
+	@JsonIgnore
 	@OneToOne
 	@MapsId
 	private Order order;
