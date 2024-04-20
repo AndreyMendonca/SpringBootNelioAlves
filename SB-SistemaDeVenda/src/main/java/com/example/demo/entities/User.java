@@ -15,10 +15,12 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Entity
@@ -28,11 +30,11 @@ public class User implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private final Integer id;
-	private final String name;
-	private final String email;
-	private final String phone; 
-	private final String password;
+	private Integer id;
+	private String name;
+	private String email;
+	private String phone; 
+	private String password;
 	
 	@OneToMany(mappedBy = "client")
 	@JsonIgnore

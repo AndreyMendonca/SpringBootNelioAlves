@@ -55,7 +55,6 @@ INDEX VERSION 1.134+C:\SpringBootNelioAlves\.metadata\.plugins\org.eclipse.jdt.c
 2421195144.index
 1086793843.index
 1230117294.index
-1215237312.index
 833743007.index
 3450736567.index
 2226329494.index

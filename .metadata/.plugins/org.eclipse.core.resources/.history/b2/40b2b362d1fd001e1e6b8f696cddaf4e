@@ -1,0 +1,11 @@
+package com.example.demo.resources.exceptions;
+
+import java.time.Instant;
+
+public class StandarError {
+	private Instant timestamp;
+	private Integer status;
+	private String error;
+	private String message;
+	private String path;
+}
