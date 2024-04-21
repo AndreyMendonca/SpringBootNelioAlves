@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sistemaPost.entities.User;
+import com.sistemaPost.entities.DTO.UserDTO;
 import com.sistemaPost.services.UserService;
 
 @RestController
@@ -22,14 +23,14 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll(){
-		List<User> users = service.findAll();
+	public ResponseEntity<List<UserDTO>> findAll(){
+		List<UserDTO> users = service.findAll();
 		return ResponseEntity.ok().body(users);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<User> findById(@PathVariable Integer id){
-		User user = service.findById(id);
+	public ResponseEntity<UserDTO> findById(@PathVariable Integer id){
+		UserDTO user = service.findById(id);
 		return ResponseEntity.ok().body(user);
 	}
 	
