@@ -40,6 +40,17 @@ public class UserService {
 		return user;
 	}
 	
+	public void delete(Integer id) {
+		try {
+			Optional<User> user = repository.findById(id);
+			repository.delete(user.get());
+		}catch(NoSuchElementException e) {
+			throw new ObjectNotFoundException("Cliente nao encontrado");
+		}
+		
+		
+	}
+	
 	public User update(User user, Integer id) {
 		User obj = repository.getReferenceById(id);
 		updateData(obj, user);
