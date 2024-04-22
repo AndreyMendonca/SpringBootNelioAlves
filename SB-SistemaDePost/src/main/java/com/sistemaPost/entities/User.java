@@ -1,11 +1,14 @@
 package com.sistemaPost.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,5 +27,8 @@ public class User implements Serializable{
 	private Integer id;
 	private String name;
 	private String email;
+	
+	@OneToMany
+	private List<Post> posts = new ArrayList<>();
 	
 }

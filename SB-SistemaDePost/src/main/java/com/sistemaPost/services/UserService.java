@@ -1,6 +1,7 @@
 package com.sistemaPost.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.sistemaPost.entities.User;
 import com.sistemaPost.entities.DTO.UserDTO;
 import com.sistemaPost.repositories.UserRepository;
+import com.sistemaPost.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -23,9 +25,14 @@ public class UserService {
 	}
 	
 	public UserDTO findById(Integer id) {
-		Optional<User> user = repository.findById(id);
-		UserDTO dto = new UserDTO(user.get().getName(), user.get().getEmail());
-		return dto;
+		try {
+			Optional<User> user = repository.findById(id);
+			UserDTO dto = new UserDTO(user.get().getName(), user.get().getEmail());
+			return dto;
+		}catch(NoSuchElementException e) {
+			throw new ObjectNotFoundException("Cliente nao encontrado");
+		}
+		
 	}
 	
 	public User save(User user) {
