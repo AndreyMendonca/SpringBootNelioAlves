@@ -25,11 +25,12 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
+
 	@GetMapping
 	public ResponseEntity<List<UserDTO>> findAll(){
 		List<UserDTO> users = service.findAll();
 		return ResponseEntity.ok().body(users);
-	}
+	} 
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<UserDTO> findById(@PathVariable Integer id){
@@ -47,7 +48,7 @@ public class UserController {
 	@PutMapping("/{id}")
 	public ResponseEntity<User> update(@RequestBody User user, @PathVariable Integer id){
 		user = service.update(user, id);
-		return ResponseEntity.ok().body(user);
+		return ResponseEntity.noContent().build() ;
 	}
 	
 	@DeleteMapping("/{id}")

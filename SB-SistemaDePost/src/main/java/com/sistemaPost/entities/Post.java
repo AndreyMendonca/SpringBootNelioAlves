@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -31,12 +32,13 @@ public class Post implements Serializable{
 	private String body;
 	
 	@ManyToOne()
-	private User Author;
+	@JoinColumn(name="id_author")
+	private User author;
 	
-	public Post(String title, String body, User Author) {
+	public Post(String title, String body, User author) {
 		this.title = title;
 		this.body = body;
-		this.Author = Author;
+		this.author = author;
 		this.datePost = LocalDate.now();
 	}
 }

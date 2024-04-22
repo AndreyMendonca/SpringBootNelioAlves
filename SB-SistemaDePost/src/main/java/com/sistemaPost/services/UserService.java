@@ -18,16 +18,17 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 	
+	
 	public List<UserDTO> findAll(){
 		List<User> users = repository.findAll();
-		List<UserDTO> usersDTO = users.stream().map( x -> new UserDTO(x.getName(),x.getEmail())).collect(Collectors.toList());
+		List<UserDTO> usersDTO = users.stream().map( x -> new UserDTO(x)).collect(Collectors.toList());
 		return usersDTO;
-	}
+	} 
 	
 	public UserDTO findById(Integer id) {
 		try {
 			Optional<User> user = repository.findById(id);
-			UserDTO dto = new UserDTO(user.get().getName(), user.get().getEmail());
+			UserDTO dto = new UserDTO(user.get());
 			return dto;
 		}catch(NoSuchElementException e) {
 			throw new ObjectNotFoundException("Cliente nao encontrado");

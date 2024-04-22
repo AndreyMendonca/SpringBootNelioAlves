@@ -17,7 +17,7 @@ public class ResourceExceptionsHandler {
 		HttpStatus status = HttpStatus.NOT_FOUND;
 		StandardError err = new StandardError(System.currentTimeMillis(), 
 											status.value(), 
-											"Usuario não encontrado", 
+											"Não foi possível encontrar", 
 											e.getMessage(), 
 											request.getRequestURI());
 		
