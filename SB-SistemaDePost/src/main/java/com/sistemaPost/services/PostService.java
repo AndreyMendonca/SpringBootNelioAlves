@@ -8,8 +8,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sistemaPost.entities.Comment;
 import com.sistemaPost.entities.Post;
 import com.sistemaPost.entities.User;
+import com.sistemaPost.entities.DTO.CommentDTO;
 import com.sistemaPost.entities.DTO.PostAuthorDTO;
 import com.sistemaPost.repositories.PostRepository;
 import com.sistemaPost.repositories.UserRepository;
@@ -25,18 +27,27 @@ public class PostService {
 	public PostAuthorDTO findById(Integer id) {
 		try {
 			Optional<Post> post = repository.findById(id);
+			
+			List<Comment> commentsPost = post.get().getComments();
+			
+			List<CommentDTO> commentsPostDTO = commentsPost.stream().map(x -> new CommentDTO(x)).collect(Collectors.toList());
+			
 			PostAuthorDTO dto = new PostAuthorDTO(post.get());
+			for(CommentDTO cdto : commentsPostDTO) {
+				dto.addComments(cdto);
+			}
 			return dto;
 		}catch(NoSuchElementException e) {
 			throw new ObjectNotFoundException("Post não encontrado");
 		}
 	}
 	
+	/*
 	public List<PostAuthorDTO> findAll(){
 		List<Post> posts =  repository.findAll();
 		List<PostAuthorDTO> postsDTOS = posts.stream().map(x -> new PostAuthorDTO(x)).collect(Collectors.toList());
 		return postsDTOS;
-	}
+	} */
 	
 	public Post save(Post post) {
 		Optional<User> author = userRepository.findById(post.getAuthor().getId());

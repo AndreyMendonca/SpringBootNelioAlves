@@ -1,5 +1,0 @@
-package com.example.demo.entities.pk;
-
-public class OrderItemPK {
-
-}

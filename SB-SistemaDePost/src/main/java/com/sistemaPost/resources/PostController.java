@@ -1,7 +1,6 @@
 package com.sistemaPost.resources;
 
 import java.net.URI;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -41,9 +40,10 @@ public class PostController {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	/*
 	@GetMapping()
 	public ResponseEntity<List<PostAuthorDTO>> findAll(){
 		List<PostAuthorDTO> posts = service.findAll();
 		return ResponseEntity.ok().body(posts);
-	}
+	} */
 }

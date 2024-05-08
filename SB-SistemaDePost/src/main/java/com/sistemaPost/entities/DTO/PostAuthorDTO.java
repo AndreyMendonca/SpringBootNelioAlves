@@ -2,6 +2,8 @@ package com.sistemaPost.entities.DTO;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.sistemaPost.entities.Post;
 
@@ -16,10 +18,16 @@ public class PostAuthorDTO implements Serializable{
 	private String body;
 	private String author;
 	
+	private List<CommentDTO> comments = new ArrayList<>();
+	
 	public PostAuthorDTO(Post post) {
 		this.title = post.getTitle();
 		this.datePost = post.getDatePost();
 		this.body = post.getBody();
 		this.author = post.getAuthor().getName();
+	}
+	
+	public void addComments(CommentDTO dto) {
+		comments.add(dto);
 	}
 }
